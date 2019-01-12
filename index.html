@@ -1,22 +1,80 @@
+<!doctype html>
 <html>
 
-    <title> IndexTest </title>
-    <h1> <b> <u> This is a header </u> </b> </h1>
-        <h2> This is a subheader </h2>
+    <script>
+        
+        function SubmitId() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        
+        if (username == "y10web" && password == "los3amigos") {
+            alert("access granted... welcome y10web!");
+        } else if (username == "y10web") {
+            alert("access denied... incorrect password")
+        } else { 
+        alert("access denied")
+        }
+        }
+        
+        function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+    }
+    
+    </script>
+    
+    <head>
+    
+    <title>Amanji24 Homepage</title>
+    <link href="main2.css" rel="stylesheet" type="text/css" />
+    
+    </head>
+        
+    <body onload="startTime()">
+    <center>
+    <div id="txt"></div>
+    </center>
+    
+    <h1> <center> <b> <u> Welcome! </u> </b> </center> </h1>
+        <center> <h2> Amanji24 Homepage </h2> </center>
     <br>
-    <p> <b> <i> H3llo w0rld!! </i> </b>
-    Here's GITHUB: </p>
+   
+    <center>
+    <u> Sign in </u> <br>
+    Username: <input type="text" id="username"><br>
+    Password: <input type="password" id="password"><br>
+    <input type="submit" value="Submit" onclick="SubmitId()">
+    </center>
+        
+    <br>
+        
+    <center> <p> <b> <i> *will add more detail later* </i> </b> <br> <br>
+    Here's GITHUB: </p> </center>
     
-    <img src = https://avatars0.githubusercontent.com/u/9919?s=280&v=4>
+    <a href="https://www.github.io" target="_blank">
+    <img src="https://avatars0.githubusercontent.com/u/9919?s=280&v=4" alt="HTML tutorial">
+    </a>   
+    <center> <p> (clickable image) </p> </center>
+    
+        <br>
+    
+    <center> <button type="button"> <a href="https://mdjhoel.github.io/y10web" target="_blank"> Click here for more! </a> </button> </center>
     
     <br>
-    
-    <button type="button"> <a href="https://www.michaelcroninop.com/"> Click here for more! </a> </button>
-    
     <br>
     
-    Username: <input type="text" name="uname" id="username"><br>
-    Password: <input type="password" name="pword" id="password"><br>
-    <input type="submit" value="Submit">
+
+        
+    </body>
         
 </html>
