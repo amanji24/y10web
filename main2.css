@@ -14,6 +14,23 @@ body {
     margin: 0 auto;
     max-width: 800px;
     padding: 2em 2em 4em;
+    -webkit-animation: colorchange 60s infinite; 
+    animation: colorchange 60s infinite;
+}
+
+@-webkit-keyframes colorchange {
+     0%  {background: #d7e9e5;}
+    25%  {background: #8AC9F4;}
+    50%  {background: #E78AF4;}
+    75%  {background: #F4948A;}
+    100% {background: #C4F48A;}
+}
+@keyframes colorchange {
+     0%  {background: #d7e9e5;}
+    25%  {background: #8AC9F4;}
+    50%  {background: #E78AF4;}
+    75%  {background: #F4948A;}
+    100% {background: #C4F48A;}
 }
 
 h1, h2, h3, h4, h5, h6 {
