@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-
+    
     <script>
         
         function y10webButton() {
@@ -15,6 +15,7 @@
         
         if (username == "y10web" && password == "los3amigos") {
             alert("access granted... welcome y10web!");
+            window.location = "y10webonly.html";
         } else if (username == "y10web") {
             alert("access denied... incorrect password")
         } else { 
@@ -41,15 +42,15 @@
     
     <head>
     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amanji24 Homepage</title>
     <link href="main2.css" rel="stylesheet" type="text/css" />
     
-    </head>
-        
+    </head>   
+    
     <body onload="startTime()">
-    <center>
-    <div id="txt"></div>
-    </center>
+        
+    <center> <div id="txt"></div> </center>    
     
     <h1> <center> <b> <u> Welcome! </u> </b> </center> </h1>
         <center> <h2> Amanji24 Homepage </h2> </center>
@@ -73,13 +74,15 @@
     <center> <p> (clickable image) </p> </center>
     
     <br>
+        
+    <center> <button type="button" onclick="y10webButton()"> For y10web only </button> </center>
     
     <center> <button type="button"> <a href="https://mdjhoel.github.io/y10web" target="_blank"> Click here for more! </a> </button> </center>
-    
-    <center> <button type="button" onclick="y10webButton()"> For y10web only </button> </center>
         
     <br>
-
+    <br>
+        
+    <center><p> <a color="#545454" href="github.com/amanji24"> My Profile </a>  ||  <a color="#545454" href="github.com"> Github </a>  ||  <a color="#545454" href="ucc.on.ca"> UCC </a> </p></center>
         
     </body>
         

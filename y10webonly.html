@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+    
+<script>
+    
+    function SubmitUrl() {
+        
+        var UrlName = document.getElementById("UrlInput").value;
+        window.location = "http://" + UrlName + ".github.io/y10web"
+        
+    }
+    
+</script>
+ 
+    
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For y10web Only</title>
+    <link href="main2.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+    
+<body>
+ 
+<center>
+<h1> Welcome y10web! </h1>
+Enter a student's <b>Github username</b> to be taken to their page:
+<br>
+<input type="text" id="UrlInput">
+<input type="button" onclick="SubmitUrl()" value="Enter">
+</center>
+    
+</body>
+    
+    
+</html>
