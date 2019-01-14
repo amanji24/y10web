@@ -3,6 +3,15 @@
     
     <script>
         
+        function ExperienceButton() {
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+        
         function mHoelPage() {
             
             window.location = "http://mdjhoel.github.io/y10web";
@@ -63,16 +72,33 @@
     <br>
    
     <center>
-    <u> Sign in </u> <br>
+    <u> Sign in</u> <br>
     Username: <input type="text" id="username"><br>
     Password: <input type="password" id="password"><br>
     <input type="submit" value="Submit" onclick="SubmitId()">
     </center>
         
     <br>
+    <br>
+    
+    <center>
+    <button onclick="ExperienceButton()" class="button-xlarge">My Experience</button>
+    </center>
+    <center>
+    <div id="myDIV" style="display:none;">
+    <p> I am an experienced Java and Front End Web Developer. I have some experience in Python and would like to countine learning web development in the effort of becoming a Full Stack Web Developer. <br> <br>
+    My strengths: <br>
+    - Object Oriented Programming (OOP) <br>
+    - Debugging + Creating new algorithms <br>
+    - Fluency in Visual Basic (Scratch 2.0) <br></p>
+    <br>
+    <b> <i> *will add more detail later* </i> </b>
+    </div>
+    </center>
         
-    <center> <p> <b> <i> *will add more detail later* </i> </b> <br> <br>
-    Here's GITHUB: </p> </center>
+    <br>
+        
+    <center> <p> Here's GITHUB: </p> </center>
     
     <a href="https://www.github.io" target="_blank">
     <img src="https://avatars0.githubusercontent.com/u/9919?s=280&v=4" alt="HTML tutorial">
@@ -87,8 +113,11 @@
         
     <br>
     <br>
-        
-    <center><p> <a color="#545454" href="http://www.github.com/amanji24"> My Profile </a>  ||  <a color="#545454" href="http://www.github.com"> Github </a>  ||  <a color="#545454" href="http://ucc.on.ca"> UCC </a> </p></center>
+    <br>
+    <hr>
+    
+    <center> <p> Quick Links: </p>
+    <p> <a color="#545454" href="http://www.github.com/amanji24"> My Profile </a>  ||  <a color="#545454" href="http://www.github.com"> Github </a>  ||  <a color="#545454" href="http://ucc.on.ca"> UCC </a> </p></center>
         
     </body>
         

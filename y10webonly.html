@@ -11,6 +11,13 @@
         
     }
     
+    function SubmitUrl2() {
+        
+        var UrlName2 = document.getElementById("UrlInput2").value;
+        window.location = UrlName2;
+        
+    }
+    
 </script>
  
     
@@ -26,11 +33,18 @@
 <body>
  
 <center>
-<h1> Welcome y10web! </h1>
-Enter a student's <b>Github username</b> to be taken to their page:
+<h1><u> Welcome y10web! </u></h1>
 <br>
+<p>Enter a student's <b>Github username</b> to be taken to their page:</p>
 <input type="text" id="UrlInput">
 <input type="button" onclick="SubmitUrl()" value="Enter">
+<br>
+<br>
+<h2><b>OR</b></h2>
+<br>
+<p>Enter a <b>URL</b> to be taken there: (include http://)</p>
+<input type="text" id="UrlInput2">
+<input type="button" onclick="SubmitUrl2()" value="Enter">
 </center>
     
 </body>

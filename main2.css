@@ -14,23 +14,25 @@ body {
     margin: 0 auto;
     max-width: 800px;
     padding: 2em 2em 4em;
-    -webkit-animation: colorchange 60s infinite; 
-    animation: colorchange 60s infinite;
+    -webkit-animation: colorchange 42s infinite; 
+    animation: colorchange 42s infinite;
 }
 
 @-webkit-keyframes colorchange {
      0%  {background: #d7e9e5;}
-    25%  {background: #5EA0F3;}
-    50%  {background: #E78AF4;}
-    75%  {background: #F4948A;}
-    100% {background: #C4F48A;}
+    20%  {background: #5EA0F3;}
+    40%  {background: #E78AF4;}
+    60%  {background: #F4948A;}
+    80% {background: #C4F48A;}
+    100% {background: #d7e9e5;}
 }
 @keyframes colorchange {
      0%  {background: #d7e9e5;}
-    25%  {background: #5EA0F3;}
-    50%  {background: #E78AF4;}
-    75%  {background: #F4948A;}
-    100% {background: #C4F48A;}
+    20%  {background: #5EA0F3;}
+    40%  {background: #E78AF4;}
+    60%  {background: #F4948A;}
+    80% {background: #C4F48A;}
+    100% {background: #d7e9e5;}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -74,4 +76,8 @@ img {
         -webkit-filter: grayscale(0%);
         filter: grayscale(0%);
     }
+}
+
+.button-xlarge {
+    font-size: 125%;
 }
