@@ -1,7 +1,8 @@
 html {
     background: #cccccc;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEq9viENU3Px5BWkLTFl8WSHej5A8Y-IUWvNPDMfQtl6Wcwpb4qQ");
+    background-image: url("bg.jpg");
     -webkit-font-smoothing: antialiased;
+    background-size: cover;
 }
 
 body {
@@ -80,4 +81,18 @@ img {
 
 .button-xlarge {
     font-size: 125%;
+}
+
+.button {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.button:hover {
+  background-color: RoyalBlue;
 }
