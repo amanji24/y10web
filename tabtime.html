@@ -11,6 +11,10 @@
 <body onload="startTime()">
     
 <center> <div id="txt"></div> </center> 
+    
+    <br>
+    <center> <button class="button-xlarge" onclick="Homepage()" > Homepage </button> </center>
+    <br>
         
 <h1>Tables of Time</h1>
 	
@@ -128,8 +132,13 @@ function startTime() {
     if (i < 10) {i = "0" + i};
     return i;
     }    
+    
+    function Homepage() {
+        
+        window.location = "index.html";
+        
+    }
 
 </script>
-
 
 </html>
