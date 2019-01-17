@@ -12,7 +12,16 @@
     
     function SubmitUrl() {
         
-        var UrlName = document.getElementById("UrlInput").value;
+        /*var UrlEnding = document.getElementsByName("URL Ending").value;
+        if (UrlEnding == "y10web") {
+            var UrlName = document.getElementById("UrlInput").value;
+            window.location = "http://" + UrlName + ".github.io/y10web"
+        } else {
+            var UrlName = document.getElementById("UrlInput").value;
+            window.location = "http://" + UrlName + ".github.io/Y10Web"
+        }*/
+        
+         var UrlName = document.getElementById("UrlInput").value;
         window.location = "http://" + UrlName + ".github.io/y10web"
         
     }
@@ -45,6 +54,7 @@
 <input type="text" id="UrlInput">
 <input type="button" onclick="SubmitUrl()" value="Enter">
 <br>
+<p>Ending (default is y10web):  </p>
 <input type="radio" name="URL Ending" value="y10web"> y10web      <input type="radio" name="URL Ending" value="Y10Web"> Y10Web
 <br>
 <br>
