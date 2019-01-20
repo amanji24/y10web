@@ -21,6 +21,10 @@
         <br>
     <p>You can use the arrow keys or the WASD keys to move your character! <br>
     Also, the space bar can be pressed for invisibility.</p>
+    <p>Skins:</p>
+        <input type="radio" value="Default" onclick="DefaultSkin()" name="skin"> Default <input type="radio" value="Deadpool" onclick="DeadpoolSkin()" name="skin"> Deadpool <input type="radio" value="SpiderGwen" onclick="SpiderGwenSkin()" name="skin"> Spider-Gwen
+        <br>
+        <p> (Move left or right after selecting a skin) </p>
         <br>
     <button onclick="Homepage()" class="button-xlarge">Homepage</button>
     </center>
@@ -28,7 +32,35 @@
 </body>
     
 <script>
-        
+    
+    var SkinRight = "files/right.png";
+    var SkinLeft = "files/left.png";
+    
+    function DefaultSkin() {
+        SkinRight = "files/right.png";
+        SkinLeft = "files/left.png";
+    }
+    
+    function DeadpoolSkin() {
+        SkinRight = "files/right2.png";
+        SkinLeft = "files/left2.png";
+    }
+    
+    function SpiderGwenSkin() {
+        SkinRight = "files/right3.png";
+        SkinLeft = "files/left3.png";
+    }
+    
+    function reDraw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        //ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.drawImage(bgImg, 0, 0);
+        ctx.drawImage(HeroImage, HeroX, HeroY);
+    }
+    
+    var Score = 0;
+    var Health = 20;
+    
     var clearCount = 0;
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -36,20 +68,28 @@
     var HeroX = 275;
     var HeroW = 50;
     var HeroH = 50;
+    
+    var bgImg = new Image();
+    bgImg.onload = function () {
+        ctx.drawImage(bgImg, 0, 0);
+    }
+    bgImg.src = "files/bg.png";
+    
     var HeroImage = new Image();
     HeroImage.onload = function () {
         ctx.drawImage(HeroImage, HeroX, HeroY);
     }
     HeroImage.src = "files/right.png";
-    ctx.fillStyle = "#FF0000";
-    //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+    
+    /*ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0,0,canvas.width,canvas.height);*/
     
     function HideHero() {
         if (clearCount % 2 == 0) {
             ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.drawImage(bgImg, 0, 0);
         } else {
-            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
-            ctx.drawImage(HeroImage, HeroX, HeroY);
+            reDraw();
         }
         clearCount++;
     }
@@ -57,38 +97,30 @@
     function Up() {
         if (clearCount % 2 == 0 && HeroY > 10) {
             HeroY = HeroY - 10;
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
-            ctx.drawImage(HeroImage, HeroX, HeroY);
+            reDraw();
         }
     }
     
     function Down() {
         if (clearCount % 2 == 0 && HeroY < 300) {
             HeroY = HeroY + 10;
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
-            ctx.drawImage(HeroImage, HeroX, HeroY);
+            reDraw();
         }
     }
     
     function Left() {
         if (clearCount % 2 == 0 && HeroX > 10) {
             HeroX = HeroX - 10;
-            HeroImage.src = "files/left.png"
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
-            ctx.drawImage(HeroImage, HeroX, HeroY);
+            HeroImage.src = SkinLeft;
+            reDraw();
         }
     }
     
     function Right() {
         if (clearCount % 2 == 0 && HeroX < 540) {
             HeroX = HeroX + 10;
-            HeroImage.src = "files/right.png";
-            ctx.clearRect(0,0,canvas.width,canvas.height);
-            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
-            ctx.drawImage(HeroImage, HeroX, HeroY);
+            HeroImage.src = SkinRight;
+            reDraw();
         }
     }
     
