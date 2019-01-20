@@ -12,7 +12,7 @@
 <body>
     
     <center>
-        
+      
         <h1>Game Test</h1>
         <p> Welcome! I am just testing out a game, not much to see here... yet.</p>
             <br>
@@ -20,11 +20,10 @@
         <br>
         <br>
     <p>You can use the arrow keys or the WASD keys to move your character! <br>
-    Also, the space bar can be pressed for invisibility.</p>
-    <p>Skins:</p>
+    Also, the space bar can be pressed for invisibility (use in game in progress).</p>
+    <p>Skins: (Move left or right after selecting a skin)</p>
         <input type="radio" value="Default" onclick="DefaultSkin()" name="skin"> Default <input type="radio" value="Deadpool" onclick="DeadpoolSkin()" name="skin"> Deadpool <input type="radio" value="SpiderGwen" onclick="SpiderGwenSkin()" name="skin"> Spider-Gwen
         <br>
-        <p> (Move left or right after selecting a skin) </p>
         <br>
     <button onclick="Homepage()" class="button-xlarge">Homepage</button>
     </center>
@@ -32,6 +31,9 @@
 </body>
     
 <script>
+    
+    var bgX = Math.random() * 550;
+    var bgY = Math.random() * 350;
     
     var SkinRight = "files/right.png";
     var SkinLeft = "files/left.png";
@@ -52,11 +54,23 @@
     }
     
     function reDraw() {
+        //CoverCheck();
         ctx.clearRect(0,0,canvas.width,canvas.height);
         //ctx.fillRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(bgImg, 0, 0);
         ctx.drawImage(HeroImage, HeroX, HeroY);
+        ctx.drawImage(badguyImg, bgX, bgY);
     }
+    
+    /*function CoverCheck() {
+        Rectangle kr = new Rectangle(HeroX,HeroY,50,95);
+        Rectangle bgr = new Rectangle(bgX,bgY,50,50);
+        if (kr.intersects(bgr)) {
+            Score++;
+            bgX = Math.random() * 550;
+            bgY = Math.random() * 350;
+        }
+    }*/
     
     var Score = 0;
     var Health = 20;
@@ -80,6 +94,12 @@
         ctx.drawImage(HeroImage, HeroX, HeroY);
     }
     HeroImage.src = "files/right.png";
+    
+    var badguyImg = new Image();
+    badguyImg.onload = function () {
+        ctx.drawImage(badguyImg, bgX, bgY);
+    }
+    badguyImg.src = "files/badguy.png";
     
     /*ctx.fillStyle = "#FF0000";
     ctx.fillRect(0,0,canvas.width,canvas.height);*/
