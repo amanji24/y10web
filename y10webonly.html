@@ -10,20 +10,25 @@
         
     }
     
+    var y10web = true;
+    
+    function y10webEnd() {
+        y10web = true;
+    }
+    
+    function Y10WebEnd() {
+        y10web = false;
+    }
+    
     function SubmitUrl() {
         
-        /*var UrlEnding = document.getElementsByName("URL Ending").value;
-        if (UrlEnding == "y10web") {
-            var UrlName = document.getElementById("UrlInput").value;
+        var UrlName = document.getElementById("UrlInput").value;
+        if (y10web) {
             window.location = "http://" + UrlName + ".github.io/y10web"
         } else {
-            var UrlName = document.getElementById("UrlInput").value;
             window.location = "http://" + UrlName + ".github.io/Y10Web"
-        }*/
-        
-         var UrlName = document.getElementById("UrlInput").value;
-        window.location = "http://" + UrlName + ".github.io/y10web"
-        
+        }
+    
     }
     
     function SubmitUrl2() {
@@ -55,7 +60,7 @@
 <input type="button" onclick="SubmitUrl()" value="Enter">
 <br>
 <p>Ending (default is y10web):  </p>
-<input type="radio" name="URL Ending" value="y10web"> y10web      <input type="radio" name="URL Ending" value="Y10Web"> Y10Web
+<input type="radio" name="URL Ending" value="y10web" onclick="y10webEnd()"> y10web      <input type="radio" name="URL Ending" value="Y10Web" onclick="Y10WebEnd()"> Y10Web
 <br>
 <br>
 <h2><b>OR</b></h2>
