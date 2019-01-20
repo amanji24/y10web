@@ -26,7 +26,11 @@
         
         function TestGame() {
             
-            window.location = "gametest.html";
+            if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                alert("Mobile not supported... yet")
+            } else {
+                window.location = "gametest.html";
+            }
             
         }
         
