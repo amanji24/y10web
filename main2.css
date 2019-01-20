@@ -3,6 +3,8 @@ html {
     background-image: url("bg.jpg");
     -webkit-font-smoothing: antialiased;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 body {

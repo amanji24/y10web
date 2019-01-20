@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Test</title>
+    <link href="main2.css" rel="stylesheet" type="text/css" />
+    
+</head>
+    
+<body>
+    
+    <center>
+        
+        <h1>Game Test</h1>
+        <p> Welcome! I am just testing out a game, not much to see here... yet.</p>
+            <br>
+    <canvas id="myCanvas" width="600" height="400" style="border:1px solid #000000;"></canvas>
+        <br>
+        <br>
+    <p>You can use the arrow keys or the WASD keys to move your character! <br>
+    Also, the space bar can be pressed for invisibility.</p>
+        <br>
+    <button onclick="Homepage()" class="button-xlarge">Homepage</button>
+    </center>
+    
+</body>
+    
+<script>
+        
+    var clearCount = 0;
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var HeroY = 152;
+    var HeroX = 275;
+    var HeroW = 50;
+    var HeroH = 50;
+    var HeroImage = new Image();
+    HeroImage.onload = function () {
+        ctx.drawImage(HeroImage, HeroX, HeroY);
+    }
+    HeroImage.src = "files/right.png";
+    ctx.fillStyle = "#FF0000";
+    //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+    
+    function HideHero() {
+        if (clearCount % 2 == 0) {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+        } else {
+            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+            ctx.drawImage(HeroImage, HeroX, HeroY);
+        }
+        clearCount++;
+    }
+    
+    function Up() {
+        if (clearCount % 2 == 0 && HeroY > 10) {
+            HeroY = HeroY - 10;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+            ctx.drawImage(HeroImage, HeroX, HeroY);
+        }
+    }
+    
+    function Down() {
+        if (clearCount % 2 == 0 && HeroY < 300) {
+            HeroY = HeroY + 10;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+            ctx.drawImage(HeroImage, HeroX, HeroY);
+        }
+    }
+    
+    function Left() {
+        if (clearCount % 2 == 0 && HeroX > 10) {
+            HeroX = HeroX - 10;
+            HeroImage.src = "files/left.png"
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+            ctx.drawImage(HeroImage, HeroX, HeroY);
+        }
+    }
+    
+    function Right() {
+        if (clearCount % 2 == 0 && HeroX < 540) {
+            HeroX = HeroX + 10;
+            HeroImage.src = "files/right.png";
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            //ctx.fillRect(HeroX, HeroY, HeroW, HeroH);
+            ctx.drawImage(HeroImage, HeroX, HeroY);
+        }
+    }
+    
+    //KEYLISTENER
+    
+    window.onkeyup = function(e) {
+    
+        var key = e.keyCode ? e.keyCode : e.which;
+        
+        if (key == 37 || key == 65) {
+            Left();
+        } else if (key == 38 || key == 87) {
+            Up();
+        } else if (key == 39 || key == 68) {
+            Right();
+        } else if (key == 40 || key == 83) {
+            Down();
+        } else if (key == 32) {
+            HideHero();
+        }
+        
+    }
+    
+    function Homepage() {
+        
+        window.location = "index.html";
+        
+    }
+        
+</script>
+
+</html>
