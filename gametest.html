@@ -14,15 +14,25 @@
     <center>
       
         <h1>Game Test</h1>
-        <p> Welcome! I am just testing out a game, not much to see here... yet.</p>
+        <p> Welcome! I am just testing out a game, not much to see here... yet. <br>
+        The game, in its current state, is to destroy 10 bad guys as quickly as possible. <br>
+        You can destroy bad guys by moving your character on top of them. <br>
+        *Note – the time and score functions are currently in progress, sorry! <br>
+        Scroll down for cool <b>character skins</b>, <b>controls</b> and <b>future fixes/improvements</b>.</p>
             <br>
+        <div id="ScoreText">Bad Guys Destroyed: 0</div>
+        <div id="RecentScoreText">Recent Score: 0s</div>
+        <div id="HighScoreText">High Score: 0s</div>
+        <br>
     <canvas id="myCanvas" width="600" height="400" style="border:1px solid #000000;"></canvas>
         <br>
         <br>
-    <p>You can use the arrow keys or the WASD keys to move your character! <br>
-    Also, the space bar can be pressed for invisibility (use in game in progress).</p>
+    <p>You can use the <b>WASD keys</b> to move your character! <br>
+    Also, the <b>'i' key</b> can be pressed for invisibility (use in game in progress).</p>
     <p>Skins: (Move left or right after selecting a skin)</p>
         <input type="radio" value="Default" onclick="DefaultSkin()" name="skin"> Default <input type="radio" value="Deadpool" onclick="DeadpoolSkin()" name="skin"> Deadpool <input type="radio" value="SpiderGwen" onclick="SpiderGwenSkin()" name="skin"> Spider-Gwen
+        <br>
+        <p>Future fixes and additions/improvements: Working time (for scoring purposes), Audio, Second Player</p>
         <br>
         <br>
     <button onclick="Homepage()" class="button-xlarge">Homepage</button>
@@ -34,9 +44,29 @@
     
     var bgX = Math.random() * 550;
     var bgY = Math.random() * 350;
+    var bgW = 50;
+    var bgH = 50;
+    var Score = 0;
+    var Health = 20;
+    var RecentScore = 0;
+    var HighScore = 0;
+    var moveCount = 0;
+    var TimerCount = 30;
+    var TimeScore = 0;
+        
+    var clearCount = 0;
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var HeroY = 152;
+    var HeroX = 275;
+    var HeroW = 50;
+    var HeroH = 50;
     
     var SkinRight = "files/right.png";
     var SkinLeft = "files/left.png";
+    
+    var StartTime = new Date().getTime;
+    
     
     function DefaultSkin() {
         SkinRight = "files/right.png";
@@ -53,28 +83,38 @@
         SkinLeft = "files/left3.png";
     }
     
+    function CoverCheck() {
+        if ((HeroX+25) > bgX && (HeroX+25) < (bgX + bgW) && (HeroY+47.5) > bgY && (HeroY+47.5) < (bgY + bgH)) {
+            Score++;
+            if (Score == 10) {
+                var FinishTime = new Date().getTime;
+                TimeDiff = FinishTime - StartTime;
+                TimeScore = Math.floor((TimeDiff % (1000 * 60)) / 1000);
+                RecentScore = TimeScore;
+                Score = 0;
+                if (TimeScore < HighScore) {
+                    HighScore = TimeScore;
+                }
+                StartTime = new Date().getTime;
+            }
+            bgX = Math.random() * 550;
+            bgY = Math.random() * 350;
+            reDraw();
+        }
+    }
+    
     function reDraw() {
+        
+        document.getElementById("ScoreText").innerHTML = "Bad Guys Destroyed: " + Score;
+        document.getElementById("RecentScoreText").innerHTML = "Recent Score: " + RecentScore + "s";
+        document.getElementById("HighScoreText").innerHTML = "High Score: " + HighScore + "s";
         ctx.clearRect(0,0,canvas.width,canvas.height);
         //ctx.fillRect(0,0,canvas.width,canvas.height);
         ctx.drawImage(bgImg, 0, 0);
         ctx.drawImage(HeroImage, HeroX, HeroY);
         ctx.drawImage(badguyImg, bgX, bgY);
+        CoverCheck();
     }
-    
-    function CoverCheck() {
-        //COLLISION CHECK
-    }
-    
-    var Score = 0;
-    var Health = 20;
-    
-    var clearCount = 0;
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var HeroY = 152;
-    var HeroX = 275;
-    var HeroW = 50;
-    var HeroH = 50;
     
     var bgImg = new Image();
     bgImg.onload = function () {
@@ -128,6 +168,10 @@
             HeroImage.src = SkinLeft;
             reDraw();
         }
+        if (moveCount == 0) {
+            moveCount++;
+            StartTimer();
+        }
     }
     
     function Right() {
@@ -144,15 +188,15 @@
     
         var key = e.keyCode ? e.keyCode : e.which;
         
-        if (key == 37 || key == 65) {
+        if (/*key == 37 ||*/ key == 65) {
             Left();
-        } else if (key == 38 || key == 87) {
+        } else if (/*key == 38 ||*/ key == 87) {
             Up();
-        } else if (key == 39 || key == 68) {
+        } else if (/*key == 39 ||*/ key == 68) {
             Right();
-        } else if (key == 40 || key == 83) {
+        } else if (/*key == 40 ||*/ key == 83) {
             Down();
-        } else if (key == 32) {
+        } else if (key == 73) {
             HideHero();
         }
         
