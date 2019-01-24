@@ -46,14 +46,14 @@
     var bgY = Math.random() * 350;
     var bgW = 50;
     var bgH = 50;
-    var Score = 0;
+    var Score = 9;
     var Health = 20;
     var RecentScore = 0;
     var HighScore = 0;
     var moveCount = 0;
     var TimerCount = 30;
     var TimeScore = 0;
-        
+    var ScoreReset = false;
     var clearCount = 0;
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -62,11 +62,19 @@
     var HeroW = 50;
     var HeroH = 50;
     
+    var Date2 = new Date();
+    var FinishTimeM = Date2.getMinutes();
+    var FinishTimeS = Date2.getSeconds();
+    var TimeDiffM = FinishTimeM - StartTimeM;
+    var TimeDiffS = FinishTimeS - StartTimeS;
+    var TimeDiff = (60*TimeDiffM) + TimeDiffS;
+    
     var SkinRight = "files/right.png";
     var SkinLeft = "files/left.png";
     
-    var StartTime = new Date().getTime;
-    
+    var Date = new Date();
+    var StartTimeM = Date.getMinutes();
+    var StartTimeS = Date.getSeconds();
     
     function DefaultSkin() {
         SkinRight = "files/right.png";
@@ -87,15 +95,22 @@
         if ((HeroX+25) > bgX && (HeroX+25) < (bgX + bgW) && (HeroY+47.5) > bgY && (HeroY+47.5) < (bgY + bgH)) {
             Score++;
             if (Score == 10) {
-                var FinishTime = new Date().getTime;
-                TimeDiff = FinishTime - StartTime;
-                TimeScore = Math.floor((TimeDiff % (1000 * 60)) / 1000);
-                RecentScore = TimeScore;
+                ScoreReset = true;
                 Score = 0;
+                Date2 = new Date();
+                FinishTimeM = Date2.getMinutes();
+                FinishTimeS = Date2.getSeconds();
+                TimeDiffM = FinishTimeM - StartTimeM;
+                TimeDiffS = FinishTimeS - StartTimeS;
+                TimeDiff = (60*TimeDiffM) + TimeDiffS;
+                TimeScore = TimeDiff;
+                RecentScore = TimeScore;
                 if (TimeScore < HighScore) {
                     HighScore = TimeScore;
                 }
-                StartTime = new Date().getTime;
+                Date = new Date();
+                StartTimeM = Date.getMinutes();
+                StartTimeS = Date.getSeconds();
             }
             bgX = Math.random() * 550;
             bgY = Math.random() * 350;
@@ -114,6 +129,10 @@
         ctx.drawImage(HeroImage, HeroX, HeroY);
         ctx.drawImage(badguyImg, bgX, bgY);
         CoverCheck();
+        if (ScoreReset) {
+            Score = 0;
+            ScoreReset = false;
+        }
     }
     
     var bgImg = new Image();
@@ -184,7 +203,7 @@
     
     //KEYLISTENER
     
-    window.onkeyup = function(e) {
+    window.onkeydown = function(e) {
     
         var key = e.keyCode ? e.keyCode : e.which;
         
