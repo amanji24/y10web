@@ -34,26 +34,6 @@
             
         }
         
-        function y10webButton() {
-            
-            alert("Username: y10web  &&  Password: los3amigos");
-            
-        }
-        
-        function SubmitId() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            if (username == "y10web" && password == "los3amigos") {
-                alert("access granted... welcome y10web!");
-                window.location = "y10webonly.html";
-            } else if (username == "y10web") {
-                alert("access denied... incorrect password")
-            } else { 
-                alert("access denied")
-            }
-        }
-        
     function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -76,7 +56,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amanji24 Homepage</title>
     <link href="main2.css" rel="stylesheet" type="text/css" />
-    
+    <script src="y10webLogin.js"></script>    
+        
     </head>   
     
     <body onload="startTime()">

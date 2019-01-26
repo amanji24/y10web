@@ -35,6 +35,12 @@
         <p>Future fixes and additions/improvements: Working time (for scoring purposes), Audio, Second Player</p>
         <br>
         <br>
+        <p>I'm also working on a 'Simon' (Pattern) Game:</p> <button onclick="StartGame()">Start Game</button> <br>
+        <canvas id="myCanvas2" width="600" height="400"></canvas>
+        <p>You can press the number keys to select the panel.<br>
+        The game is not yet functional - sorry. Hopefully it will be up soon!</p>
+        <br>
+        <br>
     <button onclick="Homepage()" class="button-xlarge">Homepage</button>
     </center>
     
@@ -46,7 +52,7 @@
     var bgY = Math.random() * 350;
     var bgW = 50;
     var bgH = 50;
-    var Score = 9;
+    var Score = 0;
     var Health = 20;
     var RecentScore = 0;
     var HighScore = 0;
@@ -203,6 +209,8 @@
     
     //KEYLISTENER
     
+    var ColChg = true;
+    
     window.onkeydown = function(e) {
     
         var key = e.keyCode ? e.keyCode : e.which;
@@ -219,11 +227,102 @@
             HideHero();
         }
         
+        //SIMON
+        if (ColChg) {
+        if (key == 49) {
+            ctx2.fillStyle = "#FF4400";
+    ctx2.fillRect(145,45,150,150);
+    ctx2.fillStyle = "#FFFFFF";
+    ctx2.font = "100px Georgia";
+    ctx2.fillText("1",200,145);
+            ColChg = false;
+        } else if (key == 50) {
+            ctx2.fillStyle = "#80FF08";
+    ctx2.fillRect(305,45,150,150);
+            ctx2.fillStyle = "#FFFFFF";
+    ctx2.font = "100px Georgia";
+    ctx2.fillText("2",350,145);
+            ColChg = false;
+        } else if (key == 51) {
+            ctx2.fillStyle = "#3880FF";
+    ctx2.fillRect(145,205,150,150);
+            ctx2.fillStyle = "#FFFFFF";
+    ctx2.font = "100px Georgia";
+    ctx2.fillText("3",195,300); 
+            ColChg = false;
+        } else if (key == 52) {
+    ctx2.fillStyle = "#F8FF73";
+    ctx2.fillRect(305,205,150,150);
+            ctx2.fillStyle = "#FFFFFF";
+    ctx2.font = "100px Georgia";
+    ctx2.fillText("4",350,300);
+            ColChg = false;
+        }
+        }
+        
     }
     
     function Homepage() {
         
         window.location = "index.html";
+        
+    }
+    
+    // SIMON GAME
+    
+    var StartGame = false;
+    
+    function StartGame() {
+        StartGame = true;
+    }
+    
+    var canvas2 = document.getElementById("myCanvas2");
+    var ctx2 = canvas2.getContext("2d");
+    var UserTurn = false;
+    var Level = 1;
+    /*let Pattern = new Array;
+    Pattern.push(0);
+    var randomnum = 0;
+    for (int i = 0; i < 50; i++) {
+        randomnum = Math.floor(Math.random() * 5);
+        while (randomnum == 0) {
+            randomnum = Math.floor(Math.random() * 5);
+        }
+        Pattern.push(randomnum);
+    }
+    console.log(Pattern);*/
+    ctx2.fillStyle = "#FF0000";
+    ctx2.fillRect(145,45,150,150);
+    ctx2.fillStyle = "#00FF00";
+    ctx2.fillRect(305,45,150,150);
+    ctx2.fillStyle = "#0000FF";
+    ctx2.fillRect(145,205,150,150);
+    ctx2.fillStyle = "#FFFF00";
+    ctx2.fillRect(305,205,150,150);
+    ctx2.fillStyle = "#FFFFFF";
+    ctx2.font = "100px Georgia";
+    ctx2.fillText("1",200,145);
+    ctx2.fillText("2",350,145); 
+    ctx2.fillText("3",195,300); 
+    ctx2.fillText("4",350,300);
+    
+    window.onkeyup = function(e) {
+    
+        ctx2.fillStyle = "#FF0000";
+    ctx2.fillRect(145,45,150,150);
+    ctx2.fillStyle = "#00FF00";
+    ctx2.fillRect(305,45,150,150);
+    ctx2.fillStyle = "#0000FF";
+    ctx2.fillRect(145,205,150,150);
+    ctx2.fillStyle = "#FFFF00";
+    ctx2.fillRect(305,205,150,150);
+    ctx2.fillStyle = "#FFFFFF";
+    ctx2.font = "100px Georgia";
+    ctx2.fillText("1",200,145);
+    ctx2.fillText("2",350,145); 
+    ctx2.fillText("3",195,300); 
+    ctx2.fillText("4",350,300);
+        ColChg = true;
         
     }
         
