@@ -67,10 +67,14 @@
 <br>
 <h2><b><i>OR</i></b></h2>
 <br>
-<p>Enter an <b>AM24 username</b> to see that user's bio (profile pic coming soon)</p>
+<p>Enter an <b>AM24 username</b> to see that user's bio and status (profile pic coming soon)</p>
 <input type="text" id="UrlInput3">
 <input type="button" onclick="SubmitUrl3()" value="Enter">
 <br>
+<br>
+<div id="SearchedUName"></div>
+<br>
+<div id="SearchedProfilePic"></div>
 <br>
 <h3>Bio: </h3>
 <br>
@@ -80,6 +84,15 @@
 <h3>Status: </h3>
 <br>
 <div id="SearchedStatus">Enter a username || Trending Statuses: amanji24</div>
+<br>
+<br>
+<hr>
+<br>
+<h2> YOUR PROFILE </h2>
+<br>
+<div id="UserUName"></div>
+<br>
+<div id="UserProfilePic"></div>
 <br>
 <br>
 <h3>Your Current Bio:</h3>
@@ -100,6 +113,12 @@
 <input type="text" id="UserStatus" style="width:300px;height:150px;"> <br>
 <input type="button" onclick="SubmitStatus()" value="Submit">
 <p> 'y10web' Status changes disabled (community account) </p>    
+<br>
+<br>
+<p>Enter the address of a new profile pic: </p>
+<br>
+<input type="text" style="width:300px;height:50px;" id="NewProfilePic">
+<input type="button" onclick="SubmitProfilePic()" value="Submit">
 <br>
 <br>
 <br>

@@ -46,14 +46,17 @@ function SubmitUrl3() {
     }
     
     if (RealUser) {
+        document.getElementById("SearchedUName").innerHTML = "User: " + UrlName3;
         document.getElementById("UserInfo").innerHTML = localStorage.getItem(UrlName3 + "Bio");
         document.getElementById("SearchedStatus").innerHTML = localStorage.getItem(UrlName3 + "Status");
+        var SearchedPP = document.createElement("img");
+        SearchedPP.src = localStorage.getItem(UrlName3 + "ProfilePic")
+        document.getElementById("SearchedProfilePic").appendChild(SearchedPP);
     } else {
         alert("User cannot be found");
     }
 }
 
-//FIX - IF NO USERNAME...
 function y10webLoad() {
     var Verified = false;
     
@@ -75,6 +78,12 @@ function y10webLoad() {
         document.getElementById("UserBio").placeholder = "Type new bio here..";
         
         document.getElementById("UserStatus").placeholder = "Type new status here..";
+        
+        document.getElementById("UserUName").innerHTML = "Username: " + sessionStorage.username;
+        
+        document.getElementById("NewProfilePic").placeholder = "Type/paste new image address here";
+        
+        document.getElementById("UserProfilePic").appendChild(localStorage.getItem(sessionStorage.username + "ProfilePic"));
     }
     
 }
@@ -97,5 +106,14 @@ function SubmitStatus() {
         var d = new Date();
         localStorage.setItem(sessionStorage.username + "Status", NewStatus + " ||| Posted " + d);
         document.getElementById("CurrentUserStatus").innerHTML = localStorage.getItem(sessionStorage.username + "Status");
+    } 
+}
+
+function SubmitProfilePic() {
+    if (sessionStorage.username != "y10web") {
+        var NewProfilePic = document.createElement("img");
+        NewProfilePic.src = document.getElementById("NewProfilePic").value;
+        localStorage.setItem(sessionStorage.username + "ProfilePic", document.getElementById("NewProfilePic").value);
+        document.getElementById("UserProfilePic").appendChild(NewProfilePic);
     } 
 }
