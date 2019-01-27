@@ -1,45 +1,5 @@
 <!doctype html>
 <html>
-
-    
-<script>
-    
-    function Homepage() {
-        
-        window.location = "index.html";
-        
-    }
-    
-    var y10web = true;
-    
-    function y10webEnd() {
-        y10web = true;
-    }
-    
-    function Y10WebEnd() {
-        y10web = false;
-    }
-    
-    function SubmitUrl() {
-        
-        var UrlName = document.getElementById("UrlInput").value;
-        if (y10web) {
-            window.location = "http://" + UrlName + ".github.io/y10web"
-        } else {
-            window.location = "http://" + UrlName + ".github.io/Y10Web"
-        }
-    
-    }
-    
-    function SubmitUrl2() {
-        
-        var UrlName2 = document.getElementById("UrlInput2").value;
-        window.location = UrlName2;
-        
-    }
-    
-</script>
- 
     
 <head>
     
@@ -55,6 +15,7 @@
  
 <div id="UsernameSlot"></div>
 <center>
+<div id="txt"></div>    
 <h1><u> Welcome (again)! </u></h1>
 <br>
 <p>Enter a student's <b>Github username</b> to be taken to their page:</p>
@@ -67,7 +28,8 @@
 <br>
 <h2><b><i>OR</i></b></h2>
 <br>
-<p>Enter an <b>AM24 username</b> to see that user's bio and status (profile pic coming soon)</p>
+<p>Enter an <b>AM24 username</b> to see that user's bio, status and profile pic. <br>
+*Note: y10web will not include status or profile pic && profile detailes cannot be changed (community account).</p>
 <input type="text" id="UrlInput3">
 <input type="button" onclick="SubmitUrl3()" value="Enter">
 <br>

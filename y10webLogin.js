@@ -1,3 +1,56 @@
+function Homepage() {
+        
+        window.location = "index.html";
+        
+    }
+    
+    var y10web = true;
+    
+    function y10webEnd() {
+        y10web = true;
+    }
+    
+    function Y10WebEnd() {
+        y10web = false;
+    }
+    
+    function SubmitUrl() {
+        
+        var UrlName = document.getElementById("UrlInput").value;
+        if (y10web) {
+            window.location = "http://" + UrlName + ".github.io/y10web"
+        } else {
+            window.location = "http://" + UrlName + ".github.io/Y10Web"
+        }
+    
+    }
+    
+    function SubmitUrl2() {
+        
+        var UrlName2 = document.getElementById("UrlInput2").value;
+        window.location = UrlName2;
+        
+    }
+
+    function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+    }
+
+
+
+
+
 var Usernames = ["amanji24", "y10web"];
 var Passwords = ["#fakePword", "los3amigos"];
 sessionStorage.HasUsername = false;
@@ -49,8 +102,9 @@ function SubmitUrl3() {
         document.getElementById("SearchedUName").innerHTML = "User: " + UrlName3;
         document.getElementById("UserInfo").innerHTML = localStorage.getItem(UrlName3 + "Bio");
         document.getElementById("SearchedStatus").innerHTML = localStorage.getItem(UrlName3 + "Status");
+        document.getElementById("SearchedProfilePic").innerHTML = "";
         var SearchedPP = document.createElement("img");
-        SearchedPP.src = localStorage.getItem(UrlName3 + "ProfilePic")
+        SearchedPP.src = localStorage.getItem(UrlName3 + "ProfilePic");
         document.getElementById("SearchedProfilePic").appendChild(SearchedPP);
     } else {
         alert("User cannot be found");
@@ -58,6 +112,9 @@ function SubmitUrl3() {
 }
 
 function y10webLoad() {
+    
+    startTime();
+    
     var Verified = false;
     
     for (i = 0; i < Usernames.length; i++) {
