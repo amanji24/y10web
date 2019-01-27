@@ -19,7 +19,7 @@ body {
     padding: 2em 2em 4em;
     -webkit-animation: colorchange 42s infinite; 
     animation: colorchange 42s infinite;
-    opacity: 0.82;
+    opacity: 0.83;
 }
 
 @-webkit-keyframes colorchange {

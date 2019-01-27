@@ -65,34 +65,37 @@
 <input type="radio" name="URL Ending" value="y10web" onclick="y10webEnd()"> y10web      <input type="radio" name="URL Ending" value="Y10Web" onclick="Y10WebEnd()"> Y10Web
 <br>
 <br>
-<h2><b>OR</b></h2>
-<br>
-<p>Enter a <b>URL</b> to be taken there: (include http://)</p>
-<input type="text" id="UrlInput2">
-<input type="button" onclick="SubmitUrl2()" value="Enter">
-<br>
-<br>
-<h2><b>OR</b></h2>
+<h2><b><i>OR</i></b></h2>
 <br>
 <p>Enter an <b>AM24 username</b> to see that user's bio (profile pic coming soon)</p>
 <input type="text" id="UrlInput3">
 <input type="button" onclick="SubmitUrl3()" value="Enter">
 <br>
 <br>
-<p>Bio: </p>
+<h3>Bio: </h3>
 <br>
-<div id="UserInfo"></div>
+<div id="UserInfo">Enter a username || Trending Users: amanji24, y10web</div>
+<br>
+<br>
+<h3>Your Current Bio:</h3>
+<div id="CurrentUserBio">Not signed in (Homepage)</div>
+<br>
+<br>
+<h3>Change Your Bio:</h3>
+<input type="text" id="UserBio" style="width:300px;height:150px;"> <br>
+<input type="button" onclick="SubmitBio()" value="Submit">
+<p> 'y10web' Bio changes disabled (community account) </p>    
     
-    
-</center>    
-    
 <br>
 <br>
 <br>
 <br>
+<h3><u>(Sign out)</u></h3>
 <br>
     
-<center> <button class="button-xlarge" onclick="Homepage()" > Homepage </button> </center>
+<button class="button-xlarge" onclick="Homepage()" > Homepage </button>
+
+</center>
     
 <br>
 <br>

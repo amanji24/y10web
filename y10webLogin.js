@@ -66,9 +66,22 @@ function y10webLoad() {
         document.getElementById("UsernameSlot").innerHTML = "Sign in (Homepage)";
     } else {
         document.getElementById("UsernameSlot").innerHTML = sessionStorage.username;
+        
+        document.getElementById("CurrentUserBio").innerHTML = localStorage.getItem(sessionStorage.username + "Bio");
+
+        document.getElementById("UserBio").placeholder = "Type new bio here..";
     }
+    
 }
 
-localStorage.y10webBio = "This is the user which represents the y10web community at UCC. This specific account was created by Amanji24, the creator and owner of this Web Page. Thanks for stopping by!";
+/*localStorage.y10webBio = "This is the user which represents the y10web community at UCC. This specific account was created by Amanji24, the creator and owner of this Web Page. Thanks for stopping by!";
 
-localStorage.amanji24Bio = "Hello! Amanji24 here, creator and owner of this web page. I am just testing out some cool features of web storage in my effort of becoming a true full stack developer. I have figured out login info and bio's, hopefully more to come. :)";
+localStorage.amanji24Bio = "Hello! Amanji24 here, creator and owner of this web page. I am just testing out some cool features of web storage in my effort of becoming a true full stack developer. I have figured out login info and bio's, hopefully more to come. :)";*/
+
+function SubmitBio() {
+    if (sessionStorage.username != "y10web") {
+        var NewBio = document.getElementById("UserBio").value;
+        localStorage.setItem(sessionStorage.username + "Bio", NewBio);
+        document.getElementById("CurrentUserBio").innerHTML = localStorage.getItem(sessionStorage.username + "Bio");
+    } 
+}
