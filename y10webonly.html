@@ -46,14 +46,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For y10web Only</title>
     <link href="main2.css" rel="stylesheet" type="text/css" />
+    <script src="y10webLogin.js"></script>
 
 </head>
 
     
-<body>
+<body onload="y10webLoad()">
  
+<div id="UsernameSlot"></div>
 <center>
-<h1><u> Welcome y10web! </u></h1>
+<h1><u> Welcome (again)! </u></h1>
 <br>
 <p>Enter a student's <b>Github username</b> to be taken to their page:</p>
 <input type="text" id="UrlInput">
@@ -68,7 +70,21 @@
 <p>Enter a <b>URL</b> to be taken there: (include http://)</p>
 <input type="text" id="UrlInput2">
 <input type="button" onclick="SubmitUrl2()" value="Enter">
-</center>
+<br>
+<br>
+<h2><b>OR</b></h2>
+<br>
+<p>Enter an <b>AM24 username</b> to see that user's bio (profile pic coming soon)</p>
+<input type="text" id="UrlInput3">
+<input type="button" onclick="SubmitUrl3()" value="Enter">
+<br>
+<br>
+<p>Bio: </p>
+<br>
+<div id="UserInfo"></div>
+    
+    
+</center>    
     
 <br>
 <br>
