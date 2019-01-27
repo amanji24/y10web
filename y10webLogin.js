@@ -47,6 +47,7 @@ function SubmitUrl3() {
     
     if (RealUser) {
         document.getElementById("UserInfo").innerHTML = localStorage.getItem(UrlName3 + "Bio");
+        document.getElementById("SearchedStatus").innerHTML = localStorage.getItem(UrlName3 + "Status");
     } else {
         alert("User cannot be found");
     }
@@ -68,8 +69,12 @@ function y10webLoad() {
         document.getElementById("UsernameSlot").innerHTML = sessionStorage.username;
         
         document.getElementById("CurrentUserBio").innerHTML = localStorage.getItem(sessionStorage.username + "Bio");
+        
+        document.getElementById("CurrentUserStatus").innerHTML = localStorage.getItem(sessionStorage.username + "Status");
 
         document.getElementById("UserBio").placeholder = "Type new bio here..";
+        
+        document.getElementById("UserStatus").placeholder = "Type new status here..";
     }
     
 }
@@ -83,5 +88,14 @@ function SubmitBio() {
         var NewBio = document.getElementById("UserBio").value;
         localStorage.setItem(sessionStorage.username + "Bio", NewBio);
         document.getElementById("CurrentUserBio").innerHTML = localStorage.getItem(sessionStorage.username + "Bio");
+    } 
+}
+
+function SubmitStatus() {
+    if (sessionStorage.username != "y10web") {
+        var NewStatus = document.getElementById("UserStatus").value;
+        var d = new Date();
+        localStorage.setItem(sessionStorage.username + "Status", NewStatus + " ||| Posted " + d);
+        document.getElementById("CurrentUserStatus").innerHTML = localStorage.getItem(sessionStorage.username + "Status");
     } 
 }
