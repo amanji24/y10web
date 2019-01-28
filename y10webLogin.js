@@ -151,8 +151,10 @@ function y10webLoad() {
 
 localStorage.amanji24Bio = "Hello! Amanji24 here, creator and owner of this web page. I am just testing out some cool features of web storage in my effort of becoming a true full stack developer. I have figured out login info and bio's, hopefully more to come. :)";*/
 
+var Testing = true;
+
 function SubmitBio() {
-    if (sessionStorage.username != "y10web") {
+    if (sessionStorage.username != "y10web" || Testing) {
         var NewBio = document.getElementById("UserBio").value;
         localStorage.setItem(sessionStorage.username + "Bio", NewBio);
         document.getElementById("CurrentUserBio").innerHTML = localStorage.getItem(sessionStorage.username + "Bio");
@@ -160,7 +162,7 @@ function SubmitBio() {
 }
 
 function SubmitStatus() {
-    if (sessionStorage.username != "y10web") {
+    if (sessionStorage.username != "y10web" || Testing) {
         var NewStatus = document.getElementById("UserStatus").value;
         var d = new Date();
         localStorage.setItem(sessionStorage.username + "Status", NewStatus + " ||| Posted " + d);
@@ -169,7 +171,7 @@ function SubmitStatus() {
 }
 
 function SubmitProfilePic() {
-    if (sessionStorage.username != "y10web") {
+    if (sessionStorage.username != "y10web" || Testing) {
         document.getElementById("UserProfilePic").innerHTML = "";
         var NewProfilePic = document.createElement("img");
         NewProfilePic.src = document.getElementById("NewProfilePic").value;
