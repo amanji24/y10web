@@ -113,6 +113,10 @@ function SubmitUrl3() {
 
 function y10webLoad() {
     
+    if ( !/Chrome/i.test(navigator.userAgent) ) {
+        alert("Sorry! Only Chrome is supported... for now");
+    }
+    
     startTime();
     
     var Verified = false;
