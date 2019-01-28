@@ -151,7 +151,7 @@ function y10webLoad() {
 
 localStorage.amanji24Bio = "Hello! Amanji24 here, creator and owner of this web page. I am just testing out some cool features of web storage in my effort of becoming a true full stack developer. I have figured out login info and bio's, hopefully more to come. :)";*/
 
-var Testing = true;
+var Testing = false;
 
 function SubmitBio() {
     if (sessionStorage.username != "y10web" || Testing) {
