@@ -1,4 +1,4 @@
-function Homepage() {
+    function Homepage() {
         
         window.location = "index.html";
         
@@ -140,7 +140,9 @@ function y10webLoad() {
         
         document.getElementById("NewProfilePic").placeholder = "Type/paste new image address here";
         
-        document.getElementById("UserProfilePic").appendChild(localStorage.getItem(sessionStorage.username + "ProfilePic"));
+        var UserPP = document.createElement("img");
+        UserPP.src = localStorage.getItem(sessionStorage.username + "ProfilePic");
+        document.getElementById("UserProfilePic").appendChild(UserPP);
     }
     
 }
