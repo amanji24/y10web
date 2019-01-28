@@ -170,6 +170,7 @@ function SubmitStatus() {
 
 function SubmitProfilePic() {
     if (sessionStorage.username != "y10web") {
+        document.getElementById("UserProfilePic").innerHTML = "";
         var NewProfilePic = document.createElement("img");
         NewProfilePic.src = document.getElementById("NewProfilePic").value;
         localStorage.setItem(sessionStorage.username + "ProfilePic", document.getElementById("NewProfilePic").value);
