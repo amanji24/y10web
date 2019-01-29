@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+    
+    <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanji24 Homepage</title>
+    <link href="main2.css" rel="stylesheet" type="text/css" />
+    <script src="y10webLogin.js"></script>    
+        
+    </head>   
+    
+    <body onload="startTime()">
+    
+    <center>
+        <div id="txt"></div>
+        <br>
+        <button class="button-xlarge" onclick="Homepage()" > Homepage </button>
+        <br>
+        <h1> <u>AI Test</u> </h1>
+        <br>
+        <p>Input: </p> <br>
+        <input type="text" id="Input">
+        <button onclick="Input()">Enter</button>
+        <br>
+        <div id="AiFace"></div>
+        <br>
+        <div id="AiText"></div>
+        
+        
+    </center>
+    
+    </body>
+    
+    </html>
+    
+    <script>
+       
+        var mood = 6;
+        var inputCounter = 0;
+        var face = document.createElement("img");
+        face.src = "AiFaces/mood" + mood + ".png";
+        document.getElementById("AiFace").appendChild(face);
+        
+    function startTime() {
+    
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+    }
+    
+    function Homepage() {
+        window.location = "index.html";
+    }
+        
+    function stringContain(String, Substring) {
+        var Contains = false;
+        var SubLen = Substring.length;
+        for (i = 0; i <= String.length - Substring.length; i++) {
+            if (String.substring(i,i+SubLen) == Substring) {
+                Contains = true;
+            }
+        }
+        return Contains;
+    }    
+        
+    function isProfane(str) {
+        var Profanity = false;
+        var badWords = [];
+        for (i = 0; i < badWords.length; i++) {
+            if (str == badWords[i]) {
+                Profanity = true;
+            }
+        }
+        return Profanity;
+    }
+    
+        var asked1 = false;
+        var asked2 = false;
+        var asked3 = false;
+        var asked4 = false;
+        var asked5 = false;
+        var asked6 = false;
+        var asked7 = false;
+        var asked8 = false;
+        var asked9 = false;
+        var asked10 = false;
+        var asked11 = false;
+        var asked12 = false;
+        var asked13 = false;
+        var asked14 = false;
+        var asked15 = false;
+        
+    function Input() {
+        
+        var input = document.getElementById("Input").value;
+        
+        if (isProfane(input)) {
+            document.getElementById("AiText").innerHTML = "please don't swear";
+            mood = mood - 1.5;
+        } else if (stringContain(input, "hello")) {
+            document.getElementById("AiText").innerHTML = "hello user";
+            if (inputCounter == 0) {
+                mood = mood + 1;
+            } else if (asked1 == false) {
+                mood = mood + 0.5
+            }
+            asked1 = true;
+        } else if (stringContain(input, "friend")) {
+            document.getElementById("AiText").innerHTML = "I would love to be your friend!";
+            if (!asked2) {
+                mood = mood + 1.5;
+            }
+            asked2 = true;
+        } else if (stringContain(input, "who") && stringContain(input, "amanji24")) {
+            document.getElementById("AiText").innerHTML = "Amanji24 is the creator and owner of this web page. He is currently testing out  cool features of AI creation in an effort of creating a unique AI program. Hopefully there is more to come from him soon.";
+            if (!asked3) {
+                mood = mood + 0.5;
+            }
+            asked3 = true;
+        } else if (stringContain(input, "Siri") || stringContain(input, "Alexa")) {
+            document.getElementById("AiText").innerHTML = "I 'very much dislike' other AI's...";
+            mood = mood - 1;       
+        } else {
+            document.getElementById("AiText").innerHTML = "";
+        }
+        
+        
+        if (mood > 10) {
+            mood = 10;
+        } else if (mood < 1) {
+            mood = 1;
+        }
+        document.getElementById("AiFace").innerHTML = "";
+        var newface = document.createElement("img");
+        newface.src = "AiFaces/mood" + Math.floor(mood) + ".png";
+        document.getElementById("AiFace").appendChild(newface);
+        inputCounter++;
+    }
+        
+    </script>

@@ -3,6 +3,12 @@
         window.location = "index.html";
         
     }
+
+    function TestAI() {
+        
+        window.location = "AiTest.html";
+        
+    }
     
     var y10web = true;
     
@@ -112,6 +118,8 @@ function SubmitUrl3() {
 }
 
 function y10webLoad() {
+    
+    alert("The social features of this page are currently out of service. Sorry!");
     
     startTime();
     
