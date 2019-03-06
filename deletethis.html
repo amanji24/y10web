@@ -1,0 +1,45 @@
+<html>
+
+        <img id="catImg" src="AiFaces/mood1.png">
+        <br>
+        <button onclick="Cute()" id="Cute">Cute</button>
+        <button onclick="nCute()" id="nCute">Not Cute</button>
+        <div id="text"></div>
+            
+    <style>
+    
+        
+        button {
+            color: white;
+            padding: 5px;
+        }
+        
+        #Cute {
+            background-color: red;
+        }
+        
+        #nCute {
+            background-color: blue;
+        }
+        
+        #catImg {
+           width: 300px;
+            height: 300px
+        }
+        
+    
+    </style>
+    
+    <script>
+    
+        function Cute() {
+            document.getElementById("text").innerHTML = "This cat is cute";
+        }
+        function nCute() {
+            document.getElementById("text").innerHTML = "This cat is not cute";
+        }
+    
+    </script>
+    
+
+</html>

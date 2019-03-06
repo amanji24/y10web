@@ -1,0 +1,47 @@
+<html>
+
+    <body onload = "load()">
+    
+    <h1>Welcome</h1>
+    
+    <div id = "mainArea">
+        
+        <img src = "AiFaces/mood1.png" id="img1">
+        <img src = "AiFaces/mood2.png" id="img2">
+        <br>
+        <h3> Cute Cats </h3>
+        <br>
+        <p> I really like cute cat pictures </p>
+        <br>
+        <button onclick = "chgImg()">Next</button>
+        
+    </div>
+        
+        <script>
+        
+            x = document.getElementById("img1");
+            y = document.getElementById("img2");
+            
+            function load() {
+                y.style.display = "block";
+            }
+            
+            var counter = 0;
+            
+            function chgImg() {
+                if (counter % 2 == 0) {}
+                    x.style.display = "block";
+                    y.style.display = "none";
+                } else {
+                    x.style.display = "none";
+                    y.style.display = "block";
+                }
+                counter++;
+            }
+        
+        </script>
+    
+    
+    </body>
+    
+</html>
