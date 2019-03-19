@@ -118,7 +118,8 @@
         function chgUName() {
             
             newUName = document.getElementById("uNameChg").value;
-            firebase.database().ref('users/' + userId + "/username") = newUName;
+            delete firebase.database().ref('users/' + userId + "/username");
+            firebase.database().ref('tweets/' + userId + "/").push({username: newUName});
             newUName = "";
             console.log("uName changed");
             
