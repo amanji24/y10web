@@ -1,0 +1,401 @@
+<html>
+
+    <head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe Test</title>
+    <link href="main2.css" rel="stylesheet" type="text/css" />
+    
+    </head>
+    
+<center>
+<h2>Tic Tac Toe</h2>
+<br>
+<div id="textArea">Welcome! Click on 'Start Game' to begin.</div>
+<br>
+<canvas id="myCanvas" width=500px height=500px></canvas>
+<br>
+<br>
+<button onclick="Game()">Start Game</button>
+    <br>
+    <p>Player 1 is X's. Player 2 is O's.</p>
+</center>
+    
+<script>
+    
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");  
+    var open1 = true;
+    var open2 = true;
+    var open3 = true;
+    var open4 = true;
+    var open5 = true;
+    var open6 = true;
+    var open7 = true;
+    var open8 = true;
+    var open9 = true;
+    var startGame = false;
+    var currentPlayer = 1;
+    
+    var x1 = false;
+        var x2 = false;
+        var x3 = false;
+        var x4 = false;
+        var x5 = false;
+        var x6 = false;
+        var x7 = false;
+        var x8 = false;
+        var x9 = false;
+
+        var o1 = false;
+        var o2 = false;
+        var o3 = false;
+        var o4 = false;
+        var o5 = false;
+        var o6 = false;
+        var o7 = false;
+        var o8 = false;
+        var o9 = false;
+    
+    var boardImg = new Image();
+    boardImg.src = "board.png";
+    
+    var xImg = new Image();
+    xImg.src = "x.png";
+    
+    var oImg = new Image();
+    oImg.src = "o.png";
+    
+    
+    function Game() {
+        
+        open1 = true;
+        open2 = true;
+        open3 = true;
+        open4 = true;
+        open5 = true;
+        open6 = true;
+        open7 = true;
+        open8 = true;
+        open9 = true;
+        
+        x1 = false;
+        x2 = false;
+        x3 = false;
+        x4 = false;
+        x5 = false;
+        x6 = false;
+        x7 = false;
+        x8 = false;
+        x9 = false;
+
+        o1 = false;
+        o2 = false;
+        o3 = false;
+        o4 = false;
+        o5 = false;
+        o6 = false;
+        o7 = false;
+        o8 = false;
+        o9 = false;
+
+        startGame = true;
+        currentPlayer = 1;
+        var startingChance = Math.random();
+        if (startingChance > 0.5) {
+            currentPlayer = 2;
+            document.getElementById("textArea").innerHTML = "Player 2, you go first.";
+        } else {
+            document.getElementById("textArea").innerHTML = "Player 1, you go first.";
+        }
+        
+        reDraw();
+        
+    }
+    
+    function reDraw() {
+        
+        if (currentPlayer == 1) {
+            document.getElementById("textArea").innerHTML = "It's Player 1's turn."
+        } else {
+            document.getElementById("textArea").innerHTML = "It's Player 2's turn."
+        }
+        
+        ctx.clearRect(0,0,9999,9999);
+        
+        ctx.drawImage(boardImg,0,0);
+        
+        ctx.font = "30px Arial";
+        if (open1) {        
+            ctx.fillText("1", 75, 100);
+        }
+        if (open2) {        
+            ctx.fillText("2", 245, 100);
+        }
+        if (open3) {        
+            ctx.fillText("3", 400, 100);
+        }
+        if (open4) {        
+            ctx.fillText("4", 75, 265);
+        }
+        if (open5) {        
+            ctx.fillText("5", 245, 265);
+        }
+        if (open6) {        
+            ctx.fillText("6", 400, 265);
+        }
+        if (open7) {        
+            ctx.fillText("7", 75, 430);
+        }
+        if (open8) {        
+            ctx.fillText("8", 245, 430);
+        }
+        if (open9) {        
+            ctx.fillText("9", 400, 430);
+        }
+    
+        //x's&o's
+        
+        if (x1) {        
+            ctx.drawImage(xImg, 35, 48);
+        }
+        if (x2) {        
+            ctx.drawImage(xImg, 200, 48);
+        }
+        if (x3) {        
+            ctx.drawImage(xImg, 363, 48);
+        }
+        if (x4) {        
+            ctx.drawImage(xImg, 35, 213);
+        }
+        if (x5) {        
+            ctx.drawImage(xImg, 200, 213);
+        }
+        if (x6) {        
+            ctx.drawImage(xImg, 363, 213);
+        }
+        if (x7) {        
+            ctx.drawImage(xImg, 35, 378);
+        }
+        if (x8) {        
+            ctx.drawImage(xImg, 200, 378);
+        }
+        if (x9) {        
+            ctx.drawImage(xImg, 363, 378);
+        }
+        
+        
+        if (o1) {        
+            ctx.drawImage(oImg, 35, 48);
+        }
+        if (o2) {        
+            ctx.drawImage(oImg, 200, 48);
+        }
+        if (o3) {        
+            ctx.drawImage(oImg, 363, 48);
+        }
+        if (o4) {        
+            ctx.drawImage(oImg, 35, 208);
+        }
+        if (o5) {        
+            ctx.drawImage(oImg, 200, 208);
+        }
+        if (o6) {        
+            ctx.drawImage(oImg, 363, 207);
+        }
+        if (o7) {        
+            ctx.drawImage(oImg, 35, 375);
+        }
+        if (o8) {        
+            ctx.drawImage(oImg, 200, 375);
+        }
+        if (o9) {        
+            ctx.drawImage(oImg, 363, 375);
+        }
+        
+        
+        if (x1 && x2 && x3) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x4 && x5 && x6) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x7 && x8 && x9) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x1 && x4 && x7) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x2 && x5 && x8) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x3 && x6 && x9) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x1 && x5 && x9) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        if (x3 && x5 && x7) {
+            document.getElementById("textArea").innerHTML = "<b> Player 1 wins! <b>";
+            startGame = false;
+        }
+        
+        
+        if (o1 && o2 && o3) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o4 && o5 && o6) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o7 && o8 && o9) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o1 && o4 && o7) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o2 && o5 && o8) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o3 && o6 && o9) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o1 && o5 && o9) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        if (o3 && o5 && o7) {
+            document.getElementById("textArea").innerHTML = "<b> Player 2 wins! <b>";
+            startGame = false;
+        }
+        
+        //last check
+        if (!open1 && !open2 && !open3 && !open4 && !open5 && !open6 && !open7 && !open8 && !open9) {
+            document.getElementById("textArea").innerHTML = "<b> Draw <b>";
+            startGame = false;
+        }
+        
+        
+    }
+    
+    window.onkeydown = function(e) {
+    
+        var key = e.keyCode ? e.keyCode : e.which;
+        
+        if (startGame) {
+        if (currentPlayer == 1) {
+            if (key == 49 && open1) {
+                open1 = false;
+                x1 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 50 && open2) {
+                open2 = false;
+                x2 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 51 && open3) {
+                open3 = false;
+                x3 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 52 && open4) {
+                open4 = false;
+                x4 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 53 && open5) {
+                open5 = false;
+                x5 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 54 && open6) {
+                open6 = false;
+                x6 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 55 && open7) {
+                open7 = false;
+                x7 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 56 && open8) {
+                open8 = false;
+                x8 = true;
+                currentPlayer = 2;
+                reDraw();
+            } else if (key == 57 && open9) {
+                open9 = false;
+                x9 = true;
+                currentPlayer = 2;
+                reDraw();
+            }
+        } else if (currentPlayer == 2) {
+            if (key == 49 && open1) {
+                open1 = false;
+                o1 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 50 && open2) {
+                open2 = false;
+                o2 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 51 && open3) {
+                open3 = false;
+                o3 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 52 && open4) {
+                open4 = false;
+                o4 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 53 && open5) {
+                open5 = false;
+                o5 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 54 && open6) {
+                open6 = false;
+                o6 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 55 && open7) {
+                open7 = false;
+                o7 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 56 && open8) {
+                open8 = false;
+                o8 = true;
+                currentPlayer = 1;
+                reDraw();
+            } else if (key == 57 && open9) {
+                open9 = false;
+                o9 = true;
+                currentPlayer = 1;
+                reDraw();
+            }
+            }
+            
+        }
+        
+    }
+    
+    
+</script>
+    
+</html>
