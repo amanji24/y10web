@@ -117,7 +117,7 @@
         
         function chgUName() {
             
-            newUName = document.getElementById("newUName").value;
+            newUName = document.getElementById("uNameChg").value;
             firebase.database().ref('users/' + userId + "/").pop();
             firebase.database().ref('users/' + userId + "/").push({username: nameValue});
             newUName = "";
