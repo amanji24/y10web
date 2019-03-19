@@ -115,6 +115,16 @@
             
         }
         
+        function chgUName() {
+            
+            newUName = document.getElementById("newUName").value;
+            firebase.database().ref('users/' + userId + "/").pop();
+            firebase.database().ref('users/' + userId + "/").push({username: nameValue});
+            newUName = "";
+            console.log("uName changed");
+            
+        }
+        
         
         function signin() {
             console.log("Signing in");
@@ -135,6 +145,12 @@
         <button onclick="signin()">Sign in</button>
         <button onclick="signout()">Sign out</button>
     
+        <form>
+        Change your Username:<br>
+        <textarea id="uNameChg" type="text" name="newUName" cols="100" rows="4"></textarea>
+        </form>
+        <button type="button" onclick="chgUName()">Submit</button>
+            
         <form>
             Tweet:<br>
             <textarea id="twit" type="text" name="thetweet" cols="100" rows="4"></textarea>
