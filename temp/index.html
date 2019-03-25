@@ -117,7 +117,7 @@
         
         function chgUName() {
             
-            var data = (snapshot.val());
+            //var data = ;
             newUName = document.getElementById("uNameChg").value;
             delete data.users[userId].username;
             data.users[userId].push({username: newUName});
